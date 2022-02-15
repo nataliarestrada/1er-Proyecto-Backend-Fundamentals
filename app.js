@@ -1,11 +1,20 @@
 const express = require('express')
 const userRoutes = require("./routes/usuarios.js")
+const path = require("path")
 
 const app = express()
+
+function views(document){
+    return path.join(__dirname,"views",document)
+}
 
 app.use(express.json())
 
 app.use(userRoutes)
+
+app.get('/',function(peticion,respuesta){
+    return respuesta.sendFile(views("index.html"))
+})
 
 app.listen(4000,() => {
     console.log("Funcionando... http://localhost:4000")

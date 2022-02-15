@@ -10,18 +10,42 @@ const connection = mysql.createConnection({
 
  function query(sql, data){
     return new Promise((resolve, reject) => {
-        connection.query(sql, data, (error, result, fields) => {
+        connection.query(sql, data, (error, result) => {
             // Error first callback
             if (error){
                 reject(error.sqlMessage)
-                //console.log(error.sqlMessage);
             }
             else{
                 resolve(result)
-                //console.log(result);
             }
         })
     })
 }
+async function insert(tableName, data){
+    try{
+        await query(`INSERT INTO ${tableName}(??) VALUES(?)`,[Object.keys(data), Object.values(data)])
+        return {data, success:true}
+    }catch(error){
+        return {error, uccess:false}
+    }
+}
+//No podemos usar delete: palabra reservada
+async function del(tableName, data){
+    try{
+        await query(`DELETE FROM ${tableName} WHERE id=?`,[data])
+        return data
+    }catch(error){
+        return error
+    }
+}
 
-module.exports = {query}
+async function update(tableName, data, id){
+    try{
+        await query(`UPDATE ${tableName} SET ? WHERE id=?`,[data, id])
+        return data
+    }catch(error){
+        return error
+    }
+}
+// Exportamos un objeto
+module.exports = {query, insert, del, update}

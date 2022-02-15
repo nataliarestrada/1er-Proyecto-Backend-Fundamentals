@@ -1,44 +1,44 @@
 const express = require("express")
-const database = require("../database")
-const router = express.Router()
+const path = require("path")
+const UserController = require("../controllers/usuario.js")
 
+const router = express.Router()
+const userController = new UserController()
+
+function views(document){
+    return path.join(__dirname,"../","views",document)
+}
+
+router.get('/registro', (req,res) => {
+    return res.sendFile(views("registro.html"))
+})
 
 router.post("/registrar-usuario", async (req, res) => {
     const usuario = req.body
-    try{
-        const results = await database.query("INSERT INTO usuario(??) VALUES(?)", [Object.keys(usuario), Object.values(usuario)])
-        
-        return res.json(results) 
+    const registro = await userController.create(usuario)
+    if(registro.success){
+        return res.redirect("/")
+    }else{
+        return res.redirect("/registro")
     }
-    catch(error){
-
-        return res.json(error)
-    }
-
  })
 
  router.get("/mostrar-usuarios", async (req, res) => {
-    // OTRA forma de gestionar promesas
-    try{
-        const results = await database.query("SELECT * FROM usuario")
-        return res.json(results)
-    }
-    catch(error){
-        return res.json(error)
-    }
+    var usuarios = await userController.readAll()
+    return res.json(usuarios)
 })
 
 router.put("/editar-usuario", async (req,res)=>{
     const id = req.body.id
-    const user = req.body.usuario
-    const results = await database.query("UPDATE usuario SET ? WHERE id=?",[user,id])
-    return res.json(results)
+    const usuario = req.body.usuario
+    const result = await userController.update(usuario, id)
+    return res.json(result)
 })
 
-router.delete("/eliminar-usuario", async (req, res) => {
-    const id = req.body.id
-    const results = await database.query("DELETE FROM usuario WHERE id=?", id)
-    return res.json(results)
+router.delete("/eliminar-usuario/:id", async (req, res) => {
+    const id = req.params.id
+    var usuario = await userController.delete(id)
+    return res.json(usuario)
 })
 
 module.exports = router
