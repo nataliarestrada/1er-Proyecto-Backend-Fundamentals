@@ -20,7 +20,7 @@ router.post("/api/registrar-usuario", async (req, res) => {
     if(registro.success){
         return res.redirect("/")
     }else{
-        M.toast({html: "Error"})
+        console.log("Error");
     }
  })
 
@@ -35,11 +35,18 @@ router.get("/api/mostrar-usuario/:id", async (req, res) => {
     return res.json(usuario)
 })
 
-router.put("/api/editar-usuario", async (req,res)=>{
-    const id = req.body.id
-    const usuario = req.body.usuario
+router.post("/api/editar-usuario/:id", async (req,res)=>{
+    const id = req.params.id
+    const usuario = req.body
     const result = await userController.update(usuario, id)
-    return res.json(result)
+    // var usuarios = await userController.readAll()
+    if(result.success){
+        return res.redirect("/")
+    }else{
+        console.log(id);
+        console.log(result);
+    }
+
 })
 
 router.delete("/api/eliminar-usuario/:id", async (req, res) => {

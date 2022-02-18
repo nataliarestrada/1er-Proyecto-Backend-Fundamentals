@@ -21,30 +21,32 @@ const connection = mysql.createConnection({
         })
     })
 }
+
 async function insert(tableName, data){
     try{
         await query(`INSERT INTO ${tableName}(??) VALUES(?)`,[Object.keys(data), Object.values(data)])
         return {data, success:true}
     }catch(error){
-        return {error, uccess:false}
+        return {error, success:false}
     }
 }
 //No podemos usar delete: palabra reservada
 async function del(tableName, data){
     try{
         await query(`DELETE FROM ${tableName} WHERE id=?`,[data])
-        return data
+        return {data, success:true}
     }catch(error){
-        return error
+        return {error, success:false}
     }
 }
 
 async function update(tableName, data, id){
+    console.log(data);
     try{
         await query(`UPDATE ${tableName} SET ? WHERE id=?`,[data, id])
-        return data
+        return {data, success:true}
     }catch(error){
-        return error
+        return {error, success:false}
     }
 }
 // Exportamos un objeto

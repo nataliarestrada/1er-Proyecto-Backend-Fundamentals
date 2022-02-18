@@ -11,8 +11,8 @@ class UserController{
         return usuarios
     }
     async readOne(id){
-        const usuarios = await database.query("SELECT * FROM usuario WHERE id=?", [id])
-        return usuarios
+        const usuario = await database.query("SELECT * FROM usuario WHERE id=?", [id])
+        return usuario
     }
 
     async delete(id){

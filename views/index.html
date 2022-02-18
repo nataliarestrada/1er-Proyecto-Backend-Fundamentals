@@ -11,26 +11,28 @@
     <!-- TODO: Gestionar body -->
     <!-- <form method="POST" action="/registro"> -->
     <!-- formulario se envia en: x-www-form-urlencoded -->
-    <form class="form-register" id="formulario" method="POST" action="/api/registrar-usuario">
-        <h4>Registro de Usuario</h4>
-        <input class="controls" type="text" name="nombre" placeholder="Ingrese su Nombre">
-        <input class="controls" type="number" name="edad" placeholder="Ingrese su Edad">
-        <!-- <input class="controls" type="text" name="genero" placeholder="Ingrese su Género"> -->
-        <select class="controls select" name="genero">
-            <option>Seleccione su género</option>
-            <option>MASCULINO</option>
-            <option>FEMENINO</option>
-            <option>LGBTQ</option>
-            <option>NO BINARIO</option>
-            <option>OTRO</option>
-        </select>
-        <input class="controls" type="email" name="email" placeholder="Ingrese su Email">
-        <input class="controls" type="text" name="profesion" placeholder="Ingrese su Profesión">
-        <input class="controls" type="number" name="salario" placeholder="Ingrese su Salario">
-        <input class="controls" type="password" name="contrasenia" placeholder="Ingrese su Contraseña">
-        <button class="botons">Guardar</button>
-        <!-- <input class="botons" type="submit" value="Guardar"> -->
-    </form>
+    <div id="content-form">
+        <form class="form-register" id="formulario" method="POST" action="/api/registrar-usuario">
+            <h4>Registro de Usuario</h4>
+            <input class="controls" type="text" name="nombre" placeholder="Ingrese su Nombre">
+            <input class="controls" type="number" name="edad" placeholder="Ingrese su Edad">
+            <!-- <input class="controls" type="text" name="genero" placeholder="Ingrese su Género"> -->
+            <select class="controls select" name="genero">
+                <option>Seleccione su género</option>
+                <option>MASCULINO</option>
+                <option>FEMENINO</option>
+                <option>LGBTQ</option>
+                <option>NO BINARIO</option>
+                <option>OTRO</option>
+            </select>
+            <input class="controls" type="email" name="email" placeholder="Ingrese su Email">
+            <input class="controls" type="text" name="profesion" placeholder="Ingrese su Profesión">
+            <input class="controls" type="number" name="salario" placeholder="Ingrese su Salario">
+            <input class="controls" type="password" name="contrasenia" placeholder="Ingrese su Contraseña">
+            <button class="botons">Guardar</button>
+            <!-- <input class="botons" type="submit" value="Guardar"> -->
+        </form>
+    </div>
     <div id="table-container">
 		<table id="registro">
            
