@@ -23,10 +23,6 @@ function eliminar(id){
     })
 }
 
-// fetch("/api/registrar-usuario"){
-//     method: "POST"
-// }
-
 function buscarUsuario(id){
     fetch("/api/mostrar-usuario/"+id,{
         method:"GET"
@@ -48,7 +44,25 @@ function renderUsers(){
     </thead>`
     for(var user of usersData){
         usuarios.innerHTML = usuarios.innerHTML + `
-        <tr><td>${user.id}</td><td>${user.nombre}</td><td>${user.edad}</td><td>${user.genero}</td><td>${user.email}</td><td>${user.profesion}</td><td>${user.salario}</td><td> <button class="boton_table" onClick="buscarUsuario(${user.id})">Editar</button> </td><td><button class="boton_table" onClick="eliminar(${user.id})">Eliminar</button></td></tr>`
+        <tr>
+            <td>${user.id}</td>
+            <td>${user.nombre}</td>
+            <td>${user.edad}</td>
+            <td>${user.genero}</td>
+            <td>${user.email}</td>
+            <td>${user.profesion}</td>
+            <td>${user.salario}</td>
+            <td> 
+                <button class="boton_table" onClick="buscarUsuario(${user.id})">
+                    Editar
+                </button> 
+            </td>
+            <td>
+                <button class="boton_table" onClick="eliminar(${user.id})">
+                    Eliminar
+                </button>
+            </td>
+        </tr>`
     }
 }
 

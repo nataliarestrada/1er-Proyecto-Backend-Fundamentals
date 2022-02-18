@@ -5,24 +5,39 @@
     padding: 0;
     box-sizing: border-box;
 }
-  
+
+/* HEADER */
+header{
+    display: flex;
+    justify-content: center;
+    padding: 10px 10%;
+    background-color: #24303c;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+}
+
+
+/* Body   */
 body {
     /* background-image: url('../img/fondo.jpg') center center no-repeat; */
     background: radial-gradient( #B9C69A,#37729E) no-repeat center center fixed;
-    display: flex;
-    
 }
-  
+
+main {
+    display: flex;
+}
+
+/* Formulario */
 .form-register {
-    width: 500px;
+    width: auto;
     background: #24303c;
     padding: 30px;
     margin: 50px;
-    margin-top: 100px;
+    margin-top: 40px;
     border-radius: 4px;
     font-family: 'calibri';
     color: white;
-    box-shadow: 7px 13px 37px #000;
+    box-shadow: 7px 10px 27px #000;
     font-family: "Montserrat", sans-serif;
  }
   
@@ -79,11 +94,11 @@ body {
 /* TABLA */
 #table-container{
 	margin: 50px;
-  margin-top: 100px;
-  margin-left: 10px;
+    margin-top: 40px;
+    margin-left: 10px;
 	width: 100%;
-  font-family: "Montserrat", sans-serif;
-  font-size: 15px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
 
 }
 
@@ -92,7 +107,7 @@ table{
 	text-align: left;
 	border-collapse: collapse;
 	width: 100%;
-  box-shadow: 7px 13px 37px #000;
+    box-shadow: 7px 10px 27px #000;
 }
 
 th, td{
@@ -132,3 +147,29 @@ tr:hover td{
     color: white;
 }
 
+/* FOOTER */
+
+footer{
+    width: 100%;
+    font-family: "Montserrat", sans-serif;
+}
+
+.footer-bottom{
+	background: #000;
+	width: 100%;
+	padding: 15px 0;
+	text-align: center;
+}
+
+.footer-bottom p{
+	font-size: 14px;
+	word-spacing: 2px;
+    color: white;
+	text-transform: capitalize;
+}
+
+.footer-bottom span{
+	text-transform: uppercase;
+	color: #2fb4cc;
+	font-weight: 200;
+}
