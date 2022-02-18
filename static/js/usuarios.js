@@ -52,14 +52,14 @@ function renderUsers(){
             <td>${user.email}</td>
             <td>${user.profesion}</td>
             <td>${user.salario}</td>
-            <td> 
-                <button class="boton_table" onClick="buscarUsuario(${user.id})">
-                    Editar
+            <td class="boton_center"> 
+                <button class="boton_register" onClick="buscarUsuario(${user.id})">
+                    <img class="logo_table" src="/img/editar.svg" alt="logo">
                 </button> 
             </td>
-            <td>
-                <button class="boton_table" onClick="eliminar(${user.id})">
-                    Eliminar
+            <td class="boton_center">
+                <button class="boton_register" onClick="eliminar(${user.id})">
+                    <img class="logo_table" src="/img/eliminar.svg" alt="logo">
                 </button>
             </td>
         </tr>`
